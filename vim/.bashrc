@@ -69,7 +69,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-export PS1='\[\e[01;33m\][\u@\[\e[01;35m\]\h \[\e[01;32m\]\w] \$$(__git_ps1) \[\e[01;32m\]'
+export PS1='\[\e[01;33m\][\u@\[\e[01;35m\]\h \[\e[01;32m\]\w] \$$(__git_ps1) \[\e[00m\]'
 [[ -f ~/.git-prompt.sh ]] && . ~/.git-prompt.sh
 
 # If this is an xterm set the title to user@host:dir
@@ -137,7 +137,8 @@ export PATH=$PATH:/home/liyue/bin
 export PATH=$PATH:/home/tsl/.local/bin
 export PAGER=more
 
-source $HOME/ncs-6.0/ncsrc
-#source /etc/nso/nso-6.0/localinstall/ncsrc
+# Source NCS environment if available
+[[ -f $HOME/ncs-6.0/ncsrc ]] && source $HOME/ncs-6.0/ncsrc
+#[[ -f /etc/nso/nso-6.0/localinstall/ncsrc ]] && source /etc/nso/nso-6.0/localinstall/ncsrc
 
 . "$HOME/.cargo/env"
